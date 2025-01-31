@@ -39,7 +39,7 @@ public class TaskDetailFragment extends Fragment {
         buttonSave.setOnClickListener(v -> {
             String title = editTextTitle.getText().toString();
             String description = editTextDescription.getText().toString();
-            Task newTask = new Task(title, description, false); // Tarea no completada por defecto
+            Task newTask = new Task(title); //, description, false); // Tarea no completada por defecto
             taskViewModel.insert(newTask);
 
             // Navegar de vuelta a TaskListFragment
