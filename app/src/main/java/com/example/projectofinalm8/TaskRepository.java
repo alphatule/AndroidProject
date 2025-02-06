@@ -1,6 +1,7 @@
 package com.example.projectofinalm8;
 
 import android.app.Application;
+import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
@@ -20,6 +21,31 @@ public class TaskRepository {
         // Operación asincrónica para insertar la tarea
         new InsertTaskAsyncTask(taskDao).execute(task);
     }
+
+    public LiveData<Task> getTaskById(int id) {
+        return taskDao.getTaskById(id);
+    }
+
+    public void update(Task task) {
+        System.out.println("TaskRepository update " + task);
+        new UpdateTaskAsyncTask(taskDao).execute(task);
+    }
+
+    private static class UpdateTaskAsyncTask extends AsyncTask<Task, Void, Void> {
+        private TaskDao taskDao;
+
+        private UpdateTaskAsyncTask(TaskDao taskDao) {
+            this.taskDao = taskDao;
+        }
+
+        @Override
+        protected Void doInBackground(Task... tasks) {
+            System.out.println("TaskViewModel doInBackground " + tasks);
+            taskDao.update(tasks[0]);
+            return null;
+        }
+    }
+
 
     public LiveData<List<Task>> getAllTasks() {
         return allTasks;

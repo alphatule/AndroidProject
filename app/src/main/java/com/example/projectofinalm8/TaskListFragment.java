@@ -49,7 +49,10 @@ public class TaskListFragment extends Fragment implements AddTaskDialogFragment.
 
         // Acción de navegación (cuando se haga clic en un ítem de la lista)
         taskAdapter.setOnTaskClickListener(task -> {
-            Navigation.findNavController(requireView()).navigate(R.id.action_taskListFragment_to_taskDetailFragment);
+            System.out.println("Se hace setOnTaskClickListener " + task + " - " + task.getId());
+            Bundle bundle = new Bundle();
+            bundle.putInt("taskId", task.getId()); // Asegúrate de que taskId tiene el valor correcto
+            Navigation.findNavController(requireView()).navigate(R.id.action_taskListFragment_to_taskDetailFragment, bundle);
         });
 
         // Inicializar FAB y configurar clic para abrir el diálogo

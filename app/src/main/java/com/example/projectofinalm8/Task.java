@@ -1,6 +1,7 @@
 package com.example.projectofinalm8;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "tasks")
@@ -16,6 +17,14 @@ public class Task {
         this.title = title;
         this.description = "description";
         this.isCompleted = true;
+    }
+
+    // Constructor para actualización (Ignorado por Room)
+    @Ignore
+    public Task(int id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
     }
 
 //    public Task(String title, String description, boolean isCompleted) {

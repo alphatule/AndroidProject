@@ -17,6 +17,15 @@ public class TaskViewModel extends AndroidViewModel {
         allTasks = repository.getAllTasks();
     }
 
+    public LiveData<Task> getTaskById(int id) {
+        return repository.getTaskById(id);
+    }
+
+    public void update(Task task) {
+        System.out.println("TaskViewModel update " + task);
+        repository.update(task);
+    }
+
     public void insert(Task task) {
         repository.insert(task);
     }

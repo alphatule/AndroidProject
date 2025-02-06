@@ -20,7 +20,27 @@
         android:label="fragment_task_detail"
         tools:layout="@layout/fragment_task_detail" >
         <action
-            android:id="@+id/action_taskDetailFragment_to_taskListFragment"
-            app:destination="@id/taskListFragment" />
+            android:id="@+id/action_taskDetailFragment_to_editTaskFragment"
+            app:destination="@id/editTaskFragment" />
     </fragment>
+
+<!--    <fragment-->
+<!--        android:id="@+id/taskDetailFragment"-->
+<!--        android:name="com.example.projectofinalm8.TaskDetailFragment"-->
+<!--        android:label="Task Detail">-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_taskDetailFragment_to_editTaskFragment"-->
+<!--            app:destination="@id/editTaskFragment" />-->
+<!--    </fragment>-->
+
+
+
+    <fragment
+        android:id="@+id/editTaskFragment"
+        android:name="com.example.projectofinalm8.EditTaskFragment"
+        android:label="fragment_edit_task"
+        tools:layout="@layout/fragment_edit_task" />
+
+
 </navigation>
